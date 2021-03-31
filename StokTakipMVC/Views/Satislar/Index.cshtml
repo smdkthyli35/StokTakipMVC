@@ -1,0 +1,36 @@
+﻿@using StokTakipMVC.Models.Entity
+@model List<TBLSATISLAR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Satışlar</h2>
+
+<table style="margin-top:15px" class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>ÜRÜN</th>
+        <th>PERSONEL</th>
+        <th>MÜŞTERİ</th>
+        <th>FİYAT</th>
+        <th>TARİH</th>
+    </tr>
+    <tbody>
+
+        @foreach (var sts in Model)
+        {
+            <tr>
+                <td>@sts.ID</td>
+                <td>@sts.TBLURUNLER.AD</td>
+                <td>@sts.TBLPERSONEL.AD @sts.TBLPERSONEL.SOYAD</td>
+                <td>@sts.TBLMUSTERI.AD @sts.TBLMUSTERI.SOYAD</td>
+                <td>@sts.FIYAT</td>
+                <td>@sts.TARIH.Value.ToString("dd.MM.yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Satislar/YeniSatis/" class="btn btn-primary">Yeni Satış Ekle</a>
+

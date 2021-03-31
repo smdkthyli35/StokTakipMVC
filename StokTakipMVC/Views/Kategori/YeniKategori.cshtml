@@ -1,0 +1,15 @@
+﻿@model StokTakipMVC.Models.Entity.TBLKATEGORI
+@{
+    ViewBag.Title = "YeniKategori";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>Kategori Ad</label>
+        @Html.TextBoxFor(m=>m.AD, new {@class="form-control"})
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-primary">Ekle</button>
+    </div>
+</form>

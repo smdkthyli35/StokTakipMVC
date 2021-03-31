@@ -1,0 +1,19 @@
+﻿@model StokTakipMVC.Models.Entity.TBLKATEGORI
+@{
+    ViewBag.Title = "KategoriGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle","Kategori",FormMethod.Post))
+{
+    @Html.HiddenFor(m=>m.ID)
+
+    <div class="form-group">
+        @Html.LabelFor(m=>m.AD)
+        @Html.TextBoxFor(m=>m.AD, new {@class="form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+}
+

@@ -1,0 +1,29 @@
+﻿@model StokTakipMVC.Models.Entity.TBLMUSTERI
+@{
+    ViewBag.Title = "YeniMusteri";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div style="margin-bottom:15px">
+        <label>Müşteri Adı</label>
+        @Html.TextBoxFor(m => m.AD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.AD,"",new { @style="color:red"})
+    </div>
+    <div style="margin-bottom:15px">
+        <label>Müşteri Soyadı</label>
+        @Html.TextBoxFor(m => m.SOYAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.SOYAD,"",new { @style="color:red"})
+    </div>
+    <div style="margin-bottom:15px">
+        <label>Şehir</label>
+        @Html.TextBoxFor(m => m.SEHIR, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px">
+        <label>Bakiye</label>
+        @Html.TextBoxFor(m => m.BAKIYE, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-info">Müşteri Ekle</button>
+    </div>
+</form>

@@ -1,0 +1,47 @@
+﻿@using StokTakipMVC.Models.Entity
+@model List<TBLURUNLER> 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Index","Urun",FormMethod.Get))
+{
+    <p>
+        Ürün Adı : @Html.TextBox("p")
+        <input type="submit" value="Ara" class="btn btn-warning" />
+    </p>
+}
+
+<h2>Ürünler</h2>
+
+<table style="margin-top:15px" class="table table-bordered">
+    <tr>
+        <th>ÜRÜN ID</th>
+        <th>ÜRÜN ADI</th>
+        <th>MARKA</th>
+        <th>STOK</th>
+        <th>ALIŞ FİYATI</th>
+        <th>SATIŞ FİYATI</th>
+        <th>KATEGORİ</th>
+    </tr>
+    <tbody>
+        @foreach (var urun in Model)
+        {
+            <tr>
+                <td>@urun.ID</td>
+                <td>@urun.AD</td>
+                <td>@urun.MARKA</td>
+                <td>@urun.STOK</td>
+                <td>@urun.ALISFIYAT</td>
+                <td>@urun.SATISFIYAT</td>
+                <td>@urun.TBLKATEGORI.AD</td>
+                <td><a href="/Urun/Sil/@urun.ID" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Urun/UrunGetir/@urun.ID" class="btn btn-success">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Urun/UrunEkle" class="btn btn-primary">Yeni Ürün Kaydı</a>
+
